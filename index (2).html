@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ SEO PRIMARIO ═══ -->
+<title>ZenPulse — Pomodoro, Ruido Blanco y Plan de Productividad con IA | Gratis</title>
+<meta name="description" content="Herramienta gratuita de productividad con IA. Temporizador Pomodoro online, ruido blanco para concentrarse, tracker de hábitos y plan de foco personalizado. Sin registro.">
+<meta name="keywords" content="pomodoro online gratis, ruido blanco para estudiar, temporizador pomodoro, música para concentrarse, tracker de hábitos, técnica pomodoro, ruido blanco online, productividad IA">
+<meta name="author" content="ZenPulse">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://zenpulse.es/">
+
+<!-- ═══ OPEN GRAPH (redes sociales) ═══ -->
+<meta property="og:title" content="ZenPulse — Productividad con IA. Pomodoro, Ruido Blanco y Plan Personalizado">
+<meta property="og:description" content="Tu centro de productividad gratuito. Analiza tu estado mental y recibe un plan de trabajo diseñado por IA. Pomodoro, ruido blanco, hábitos y música focus.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zenpulse.es/">
+<meta property="og:image" content="https://zenpulse.es/og-image.png">
+<meta property="og:locale" content="es_ES">
+
+<!-- ═══ TWITTER CARD ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ZenPulse — Tu plan de productividad con IA">
+<meta name="twitter:description" content="Pomodoro online, ruido blanco, hábitos y plan IA de foco. Gratis y sin registro.">
+
+<meta name="theme-color" content="#080810">
+
+<!-- ═══ FONTS ═══ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ═══ GOOGLE ADSENSE ═══
+  PASO 1: Crea cuenta en https://adsense.google.com
+  PASO 2: Añade tu dominio (zenpulse.es)
+  PASO 3: Pega aquí el script con tu ID real:
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-TU_ID_AQUI" crossorigin="anonymous"></script>
+  PASO 4: Descomenta los bloques <ins class="adsbygoogle"> en el body
+═══════════════════════════════ -->
+
+<style>
+/* ══════════════════════════════════════
+   RESET & VARIABLES
+══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080810;
+  --bg2:#0d0d18;
+  --surface:#111120;
+  --surface2:#181828;
+  --surface3:#1e1e32;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.12);
+  --border3:rgba(255,255,255,0.2);
+  --text:#eeeaf8;
+  --text2:#bbb8cc;
+  --muted:#666580;
+  --accent:#a78bfa;   /* violeta suave */
+  --accent2:#f472b6;  /* rosa */
+  --accent3:#34d399;  /* verde menta */
+  --accent4:#fbbf24;  /* ámbar */
+  --accent5:#60a5fa;  /* azul */
+  --mono:'DM Mono',monospace;
+  --sans:'Outfit',sans-serif;
+  --r:14px;
+  --r-sm:9px;
+  --shadow:0 4px 24px rgba(0,0,0,0.4);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden;font-size:15px;line-height:1.5}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--sans)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--surface)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+::selection{background:rgba(167,139,250,0.25)}
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 2rem;
+  border-bottom:1px solid var(--border);
+  background:rgba(8,8,16,.94);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  position:sticky;top:0;z-index:300;
+}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.1rem;letter-spacing:-.5px}
+.logo-icon{
+  width:30px;height:30px;border-radius:8px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;
+  animation:logoPulse 3s ease-in-out infinite;
+}
+@keyframes logoPulse{0%,100%{box-shadow:0 0 0 0 rgba(167,139,250,0)}50%{box-shadow:0 0 0 6px rgba(167,139,250,0.15)}}
+.logo-text span{color:var(--accent)}
+
+.nav-links{display:flex;gap:2px}
+.nav-link{
+  padding:5px 12px;border-radius:100px;
+  color:var(--muted);font-size:.8rem;font-weight:400;
+  transition:all .2s;border:1px solid transparent;
+  background:none;cursor:pointer;
+}
+.nav-link:hover{color:var(--text);background:var(--surface);border-color:var(--border)}
+
+.nav-cta{
+  display:flex;align-items:center;gap:6px;
+  padding:7px 16px;border-radius:100px;border:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;font-size:.82rem;font-weight:700;cursor:pointer;
+  transition:opacity .2s,transform .15s;
+  box-shadow:0 2px 16px rgba(167,139,250,.3);
+}
+.nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero{
+  padding:4.5rem 1.5rem 3rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero-mesh{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:800px;height:340px;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 50%,rgba(167,139,250,.12) 0%,transparent 70%),
+    radial-gradient(ellipse 60% 50% at 70% 50%,rgba(244,114,182,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:5px 14px;border-radius:100px;
+  border:1px solid rgba(52,211,153,.3);
+  background:rgba(52,211,153,.07);
+  color:var(--accent3);font-size:.7rem;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.5rem;
+}
+.badge-live{width:6px;height:6px;border-radius:50%;background:var(--accent3);animation:livePulse 1.5s infinite}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.2;transform:scale(1.4)}}
+
+.hero h1{
+  font-size:clamp(2.2rem,5.5vw,3.8rem);
+  font-weight:800;letter-spacing:-2px;line-height:1.05;
+  margin-bottom:1.1rem;
+}
+.hero h1 .g1{background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 50%,var(--accent3) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{color:var(--text2);font-size:1rem;max-width:520px;margin:0 auto 2rem;line-height:1.7;font-weight:300}
+
+.hero-stats{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.hero-stat-n{font-family:var(--mono);font-size:1.6rem;font-weight:500;color:var(--text)}
+.hero-stat-l{font-size:.72rem;color:var(--muted);margin-top:2px}
+
+.hero-scroll{
+  display:inline-flex;align-items:center;gap:5px;
+  color:var(--muted);font-size:.75rem;
+  animation:float 2.5s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* ══════════════════════════════════════
+   AD SLOTS
+══════════════════════════════════════ */
+.ad-slot{
+  max-width:900px;margin:0 auto 1.5rem;padding:0 1.5rem;
+}
+.ad-inner{
+  background:var(--surface);border:1px dashed var(--border2);
+  border-radius:var(--r-sm);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.68rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;
+  gap:6px;
+}
+.ad-inner.h90{height:90px}
+.ad-inner.h250{height:250px}
+
+/* ══════════════════════════════════════
+   MAIN WRAPPER
+══════════════════════════════════════ */
+.wrap{max-width:900px;margin:0 auto;padding:0 1.5rem}
+
+/* ══════════════════════════════════════
+   TABS
+══════════════════════════════════════ */
+.tabs{
+  display:flex;gap:4px;flex-wrap:wrap;
+  padding:5px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);
+  margin-bottom:1.5rem;
+}
+.tab{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 15px;border-radius:var(--r-sm);
+  border:1px solid transparent;background:none;
+  color:var(--muted);font-size:.8rem;cursor:pointer;
+  transition:all .2s;font-weight:400;
+}
+.tab:hover{color:var(--text);background:var(--surface2)}
+.tab.active{background:var(--surface2);color:var(--text);border-color:var(--border2)}
+.tab.active.ai{color:var(--accent3);border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.05)}
+.tab-new{
+  font-size:.58rem;padding:1px 6px;border-radius:100px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;font-weight:700;
+}
+
+.panel{display:none;animation:fadeUp .3s ease}
+.panel.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══════════════════════════════════════
+   CARDS & LAYOUT
+══════════════════════════════════════ */
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.4rem;
+}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+
+.sec-label{
+  font-size:.65rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:7px;margin-bottom:1rem;
+}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:9px 20px;border-radius:100px;border:none;
+  font-family:var(--sans);font-size:.85rem;font-weight:600;
+  cursor:pointer;transition:all .2s;
+}
+.btn-v{background:var(--accent);color:white;box-shadow:0 2px 12px rgba(167,139,250,.3)}
+.btn-v:hover{opacity:.88;transform:translateY(-1px)}
+.btn-o{background:none;border:1px solid var(--border2);color:var(--text2)}
+.btn-o:hover{border-color:var(--border3);color:var(--text)}
+.btn-g{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;box-shadow:0 2px 16px rgba(167,139,250,.25)}
+.btn-g:hover{opacity:.9;transform:translateY(-1px)}
+
+/* Input */
+.inp{
+  padding:8px 12px;border-radius:var(--r-sm);
+  border:1px solid var(--border);background:var(--surface2);
+  color:var(--text);font-family:var(--sans);font-size:.84rem;
+  outline:none;transition:border-color .2s;
+}
+.inp:focus{border-color:var(--accent)}
+.inp::placeholder{color:var(--muted)}
+
+/* Stat box */
+.sbox{
+  background:var(--surface2);border-radius:var(--r-sm);
+  padding:11px 13px;display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:7px;
+}
+.sbox-l{font-size:.76rem;color:var(--text2)}
+.sbox-v{font-family:var(--mono);font-size:.95rem;font-weight:500}
+
+/* ══════════════════════════════════════
+   POMODORO
+══════════════════════════════════════ */
+.ring-wrap{position:relative;width:170px;height:170px;margin:0 auto}
+.ring-wrap svg{transform:rotate(-90deg)}
+.ring-center{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  text-align:center;
+}
+.ring-time{font-family:var(--mono);font-size:1.9rem;font-weight:500;color:var(--accent);line-height:1}
+.ring-label{font-size:.62rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+
+.pomo-modes{display:flex;gap:4px;justify-content:center;margin-bottom:1.2rem}
+.pmode{
+  padding:5px 12px;border-radius:100px;
+  border:1px solid var(--border);background:none;
+  color:var(--muted);font-size:.72rem;cursor:pointer;
+  transition:all .2s;font-family:var(--sans);
+}
+.pmode.active{border-color:var(--accent3);color:var(--accent3);background:rgba(52,211,153,.07)}
+
+.log-item{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:7px 10px;background:var(--surface2);border-radius:7px;
+  font-size:.74rem;border-left:2px solid var(--accent);margin-bottom:5px;
+}
+.log-t{color:var(--muted);font-family:var(--mono);font-size:.68rem}
+
+/* ══════════════════════════════════════
+   RUIDO BLANCO
+══════════════════════════════════════ */
+.sound-btn{
+  width:100%;padding:12px 13px;border-radius:var(--r-sm);
+  border:1px solid var(--border);background:var(--surface2);
+  color:var(--text);font-family:var(--sans);font-size:.83rem;
+  cursor:pointer;display:flex;align-items:center;gap:9px;
+  margin-bottom:6px;transition:all .2s;
+}
+.sound-btn:hover{border-color:var(--border2)}
+.sound-btn.on{border-color:var(--accent3);background:rgba(52,211,153,.05)}
+.sound-btn .si{font-size:16px}
+.sound-btn .sn{flex:1;text-align:left}
+.sound-st{font-size:.68rem;color:var(--muted)}
+.sound-btn.on .sound-st{color:var(--accent3)}
+
+.vol-row{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.vol-l{font-size:.7rem;color:var(--muted);width:68px}
+.vol-sl{
+  flex:1;-webkit-appearance:none;height:3px;
+  border-radius:2px;background:var(--border2);outline:none;cursor:pointer;
+}
+.vol-sl::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--accent);cursor:pointer}
+.vol-v{font-family:var(--mono);font-size:.68rem;color:var(--text2);width:28px;text-align:right}
+
+/* ══════════════════════════════════════
+   HÁBITOS
+══════════════════════════════════════ */
+.hgrid-hdr{
+  display:grid;grid-template-columns:1fr repeat(7,32px);gap:3px;
+  align-items:center;padding-bottom:7px;border-bottom:1px solid var(--border);
+}
+.day-l{font-size:.65rem;color:var(--muted);text-align:center;font-family:var(--mono)}
+.hrow{
+  display:grid;grid-template-columns:1fr repeat(7,32px);gap:3px;
+  align-items:center;padding:5px 0;border-bottom:1px solid var(--border);
+}
+.hname{font-size:.82rem;display:flex;align-items:center;gap:5px}
+.streak{
+  font-size:.62rem;padding:2px 7px;border-radius:100px;
+  background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.18);
+  color:var(--accent4);font-family:var(--mono);font-weight:500;margin-left:auto;
+}
+.hcheck{
+  width:28px;height:28px;border-radius:6px;
+  border:1px solid var(--border);background:var(--surface2);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:12px;justify-self:center;transition:all .18s;
+}
+.hcheck:hover{border-color:var(--border2)}
+.hcheck.done{background:rgba(52,211,153,.1);border-color:var(--accent3);color:var(--accent3)}
+.pbar-w{height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:9px}
+.pbar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent3));border-radius:2px;transition:width .4s}
+
+/* ══════════════════════════════════════
+   MÚSICA
+══════════════════════════════════════ */
+.album{
+  width:88px;height:88px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:36px;
+  background:linear-gradient(135deg,var(--surface2),var(--surface3));
+  border:1px solid var(--border);
+  animation:spin 22s linear infinite paused;
+}
+.album.playing{animation-play-state:running}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.progress-t{width:100%;height:3px;background:var(--border2);border-radius:2px;cursor:pointer}
+.progress-f{height:100%;background:var(--accent);border-radius:2px;width:28%;transition:width .5s linear}
+
+.ctrl{
+  width:32px;height:32px;border-radius:50%;
+  border:1px solid var(--border);background:var(--surface2);
+  color:var(--muted);cursor:pointer;display:flex;
+  align-items:center;justify-content:center;font-size:12px;
+  transition:all .2s;
+}
+.ctrl:hover{border-color:var(--border2);color:var(--text)}
+.ctrl-play{
+  width:42px;height:42px;border-radius:50%;
+  border:none;background:var(--accent);color:white;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:15px;transition:opacity .2s,transform .15s;
+}
+.ctrl-play:hover{opacity:.85;transform:scale(1.06)}
+
+.pl-item{
+  display:flex;align-items:center;gap:9px;padding:8px 9px;
+  border-radius:var(--r-sm);cursor:pointer;transition:background .2s;margin-bottom:3px;
+}
+.pl-item:hover{background:var(--surface2)}
+.pl-item.active{background:rgba(167,139,250,.07)}
+.pl-thumb{width:34px;height:34px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.pl-name{font-size:.82rem;font-weight:600}
+.pl-meta{font-size:.66rem;color:var(--muted);margin-top:1px}
+.pl-badge{font-size:.62rem;padding:2px 7px;border-radius:100px;font-weight:700;border:1px solid}
+.b-free{color:var(--accent3);background:rgba(52,211,153,.07);border-color:rgba(52,211,153,.2)}
+.b-pro{color:var(--accent);background:rgba(167,139,250,.08);border-color:rgba(167,139,250,.22)}
+
+/* ══════════════════════════════════════
+   AI PLAN
+══════════════════════════════════════ */
+.mood-row{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:1.2rem}
+.mbtn{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:11px 13px;border-radius:11px;
+  border:1px solid var(--border);background:var(--surface2);
+  cursor:pointer;transition:all .2s;min-width:65px;
+}
+.mbtn:hover{border-color:var(--border2);transform:translateY(-2px)}
+.mbtn.sel{border-color:var(--accent);background:rgba(167,139,250,.08)}
+.memoji{font-size:20px}
+.mlabel{font-size:.62rem;color:var(--muted)}
+.mbtn.sel .mlabel{color:var(--accent)}
+
+.sl-group{display:flex;flex-direction:column;gap:11px;margin-bottom:1.2rem}
+.sl-row{display:grid;grid-template-columns:115px 1fr 28px;align-items:center;gap:9px}
+.sl-n{font-size:.76rem;color:var(--text2)}
+.f-sl{-webkit-appearance:none;height:3px;border-radius:2px;background:var(--border2);outline:none;cursor:pointer;flex:1}
+.f-sl::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--accent);cursor:pointer}
+.sl-v{font-family:var(--mono);font-size:.7rem;font-weight:500;text-align:right}
+
+.ctx-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:1.2rem}
+.cbtn{
+  padding:9px 11px;border-radius:var(--r-sm);
+  border:1px solid var(--border);background:var(--surface2);
+  color:var(--text2);font-family:var(--sans);font-size:.76rem;
+  cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;
+}
+.cbtn:hover{border-color:var(--border2);color:var(--text)}
+.cbtn.sel{border-color:var(--accent3);color:var(--accent3);background:rgba(52,211,153,.05)}
+
+.gen-btn{
+  width:100%;padding:13px;border-radius:11px;border:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;font-family:var(--sans);font-size:.9rem;font-weight:700;
+  cursor:pointer;letter-spacing:-.2px;
+  transition:opacity .2s,transform .15s;
+  position:relative;overflow:hidden;
+}
+.gen-btn::after{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);
+  transition:left .6s;
+}
+.gen-btn:hover::after{left:100%}
+.gen-btn:hover{opacity:.9;transform:translateY(-1px)}
+.gen-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+.loader{display:none;flex-direction:column;align-items:center;gap:11px;padding:2rem}
+.loader.vis{display:flex}
+.ldots{display:flex;gap:5px}
+.ldot{width:7px;height:7px;border-radius:50%;animation:ldot 1.2s infinite ease-in-out}
+.ldot:nth-child(1){background:var(--accent)}
+.ldot:nth-child(2){background:var(--accent2);animation-delay:.2s}
+.ldot:nth-child(3){background:var(--accent3);animation-delay:.4s}
+@keyframes ldot{0%,80%,100%{transform:scale(.5);opacity:.25}40%{transform:scale(1);opacity:1}}
+.loader-m{font-size:.74rem;color:var(--muted);font-family:var(--mono)}
+
+.ai-res{display:none;flex-direction:column;gap:1.1rem}
+.ai-res.vis{display:flex;animation:fadeUp .4s ease}
+
+.score-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.4rem;
+  display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:center;
+}
+.score-circ{width:96px;height:96px;position:relative;flex-shrink:0}
+.score-circ svg{transform:rotate(-90deg)}
+.score-ov{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.score-n{font-family:var(--mono);font-size:1.5rem;font-weight:500;line-height:1}
+.score-sub{font-size:.55rem;color:var(--muted)}
+.score-title{font-size:.98rem;font-weight:700;margin-bottom:3px}
+.score-desc{font-size:.76rem;color:var(--text2);line-height:1.6}
+.tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:7px}
+.tag{padding:2px 8px;border-radius:100px;font-size:.62rem;font-weight:700;border:1px solid}
+
+.tl-item{
+  display:grid;grid-template-columns:70px 9px 1fr;align-items:center;gap:9px;
+  padding:8px 0;border-bottom:1px solid var(--border);animation:fadeUp .3s ease both;
+}
+.tl-t{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+.tl-d{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.tl-c{font-size:.78rem}
+.tl-tag{display:inline-block;font-size:.6rem;font-weight:700;padding:2px 6px;border-radius:100px;margin-left:4px;vertical-align:middle}
+
+.insight-box{
+  background:rgba(167,139,250,.04);
+  border:1px solid rgba(167,139,250,.13);
+  border-radius:var(--r);padding:1.2rem 1.4rem;
+}
+.insight-box p{font-size:.82rem;color:var(--text2);line-height:1.75}
+.insight-box strong{color:var(--text)}
+
+/* ══════════════════════════════════════
+   PRO SECTION
+══════════════════════════════════════ */
+.pro-section{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:var(--r);padding:2.5rem;text-align:center;
+  position:relative;overflow:hidden;margin:2.5rem 0;
+}
+.pro-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3),var(--accent4));
+}
+.pro-section::after{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:300px;
+  background:radial-gradient(ellipse at center,rgba(167,139,250,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.pro-badge{
+  display:inline-block;padding:4px 13px;border-radius:100px;
+  background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.22);
+  color:var(--accent);font-size:.68rem;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1rem;
+}
+.pro-section h2{font-size:1.7rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.4rem}
+.pro-section>p{color:var(--text2);font-size:.86rem;margin-bottom:1.4rem}
+.pro-price{font-size:2.8rem;font-weight:800;letter-spacing:-2px;line-height:1}
+.pro-price span{font-size:.95rem;font-weight:300;color:var(--muted)}
+.pro-note{font-size:.72rem;color:var(--muted);margin:.5rem 0 1.5rem}
+.pro-features{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:1.5rem 0;text-align:left}
+.pf{
+  display:flex;align-items:flex-start;gap:7px;
+  font-size:.8rem;color:var(--text2);padding:7px 0;
+  border-bottom:1px solid var(--border);
+}
+.pf::before{content:'✓';color:var(--accent3);font-weight:700;flex-shrink:0}
+.pro-cta{
+  width:100%;max-width:360px;padding:14px;border-radius:11px;border:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;font-family:var(--sans);font-size:.95rem;font-weight:700;
+  cursor:pointer;transition:opacity .2s,transform .15s;display:block;margin:0 auto;
+  box-shadow:0 4px 24px rgba(167,139,250,.3);
+}
+.pro-cta:hover{opacity:.88;transform:translateY(-2px)}
+.pro-trust{font-size:.68rem;color:var(--muted);margin-top:.8rem}
+
+/* ══════════════════════════════════════
+   AFILIADOS
+══════════════════════════════════════ */
+.af-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem}
+.af-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.2rem;
+  cursor:pointer;transition:all .2s;
+}
+.af-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:var(--shadow)}
+.af-em{font-size:22px;margin-bottom:8px}
+.af-name{font-size:.83rem;font-weight:700;margin-bottom:3px}
+.af-desc{font-size:.7rem;color:var(--text2);line-height:1.5}
+.af-tag{
+  display:inline-block;margin-top:8px;font-size:.62rem;font-weight:700;
+  padding:2px 8px;border-radius:100px;
+  background:rgba(251,191,36,.07);color:var(--accent4);border:1px solid rgba(251,191,36,.18);
+}
+
+/* ══════════════════════════════════════
+   BLOG
+══════════════════════════════════════ */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem}
+.blog-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.2rem;
+  cursor:pointer;transition:all .2s;
+}
+.blog-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.blog-cat{font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+.blog-title{font-size:.83rem;font-weight:600;line-height:1.45;margin-bottom:5px}
+.blog-meta{font-size:.66rem;color:var(--muted)}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer{
+  border-top:1px solid var(--border);
+  padding:2rem;margin-top:1rem;
+}
+.footer-in{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem}
+.footer-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:.95rem;margin-bottom:.7rem}
+.footer-logo .li{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:12px}
+.footer-desc{font-size:.74rem;color:var(--muted);line-height:1.6}
+.footer-h{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem}
+.footer-a{display:block;font-size:.78rem;color:var(--text2);margin-bottom:4px;transition:color .2s}
+.footer-a:hover{color:var(--text)}
+.footer-bottom{
+  max-width:900px;margin:1.5rem auto 0;
+  padding-top:1.5rem;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.7rem;color:var(--muted);flex-wrap:wrap;gap:.5rem;
+}
+
+/* ══════════════════════════════════════
+   MODAL
+══════════════════════════════════════ */
+.overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.78);z-index:500;
+  align-items:center;justify-content:center;
+  backdrop-filter:blur(6px);
+}
+.overlay.open{display:flex}
+.modal{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:var(--r);padding:2rem;max-width:400px;width:90%;
+  position:relative;text-align:center;animation:fadeUp .3s ease;
+}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:var(--r) var(--r) 0 0;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.modal-x{
+  position:absolute;top:.8rem;right:.8rem;
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--muted);width:26px;height:26px;border-radius:50%;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;
+  transition:all .2s;
+}
+.modal-x:hover{color:var(--text);border-color:var(--border2)}
+
+/* ══════════════════════════════════════
+   NOTIFICATION TOAST
+══════════════════════════════════════ */
+.toast{
+  position:fixed;bottom:1.4rem;right:1.4rem;
+  background:var(--surface2);border:1px solid var(--border2);
+  border-radius:11px;padding:10px 15px;
+  font-size:.8rem;z-index:999;
+  transform:translateY(70px);opacity:0;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  max-width:270px;box-shadow:0 8px 30px rgba(0,0,0,.5);
+}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media(max-width:680px){
+  nav{padding:.7rem 1rem}
+  .nav-links{display:none}
+  .hero h1{font-size:2rem;letter-spacing:-1px}
+  .hero-stats{gap:1.8rem}
+  .g2,.g3{grid-template-columns:1fr}
+  .pro-features{grid-template-columns:1fr}
+  .af-grid,.blog-grid{grid-template-columns:1fr 1fr}
+  .footer-in{grid-template-columns:1fr 1fr}
+  .score-card{grid-template-columns:1fr;text-align:center}
+  .score-circ{margin:0 auto}
+  .tags{justify-content:center}
+  .ctx-row{grid-template-columns:1fr}
+  .ring-wrap{width:150px;height:150px}
+  .hgrid-hdr,.hrow{grid-template-columns:1fr repeat(7,27px)}
+}
+@media(max-width:420px){
+  .af-grid,.blog-grid{grid-template-columns:1fr}
+  .footer-in{grid-template-columns:1fr}
+  .mbtn{min-width:55px;padding:9px}
+  .mood-row{gap:5px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">⚡</div>
+    <span class="logo-text">Zen<span>Pulse</span></span>
+  </div>
+  <div class="nav-links">
+    <a href="#herramientas" class="nav-link">Herramientas</a>
+    <a href="#pro" class="nav-link">PRO</a>
+    <a href="#blog" class="nav-link">Blog</a>
+    <a href="#recursos" class="nav-link">Recursos</a>
+  </div>
+  <button class="nav-cta" onclick="openModal()">⚡ Hazte PRO — 4,99€/mes</button>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-badge"><div class="badge-live"></div>Gratis · Sin registro · Sin datos</div>
+  <h1>Trabaja con foco,<br><span class="g1">no con esfuerzo</span></h1>
+  <p class="hero-desc">El único centro de productividad que analiza tu estado mental real y diseña tu sesión de trabajo perfecta. Con IA, en 30 segundos.</p>
+  <div class="hero-stats">
+    <div><div class="hero-stat-n">52k+</div><div class="hero-stat-l">Sesiones hoy</div></div>
+    <div><div class="hero-stat-n">4.9★</div><div class="hero-stat-l">Valoración</div></div>
+    <div><div class="hero-stat-n">100%</div><div class="hero-stat-l">Gratis siempre</div></div>
+  </div>
+  <div class="hero-scroll">↓ Empieza ahora</div>
+</section>
+
+<!-- ═══════════ AD TOP ═══════════ -->
+<div class="ad-slot">
+  <div class="ad-inner h90">
+    📢 Publicidad — Google AdSense 728×90
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-TU_ID" data-ad-slot="SLOT_ID" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script> -->
+  </div>
+</div>
+
+<!-- ═══════════ HERRAMIENTAS ═══════════ -->
+<div class="wrap" id="herramientas">
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" onclick="sw('pomo',this)">⏱ Pomodoro</button>
+    <button class="tab" onclick="sw('noise',this)">🎧 Ruido Blanco</button>
+    <button class="tab" onclick="sw('habits',this)">📅 Hábitos</button>
+    <button class="tab" onclick="sw('music',this)">🎵 Música Focus</button>
+    <button class="tab ai" onclick="sw('ai',this)">✦ Plan IA <span class="tab-new">NUEVO</span></button>
+  </div>
+
+  <!-- ══ POMODORO ══ -->
+  <div class="panel active" id="panel-pomo">
+    <div class="g2">
+      <div class="card" style="display:flex;flex-direction:column;align-items:center;gap:1.1rem;padding:1.8rem">
+        <div class="pomo-modes">
+          <button class="pmode active" onclick="setMode(this,25,'Focus')">Focus 25'</button>
+          <button class="pmode" onclick="setMode(this,5,'Descanso')">Descanso 5'</button>
+          <button class="pmode" onclick="setMode(this,15,'Descanso largo')">Largo 15'</button>
+        </div>
+        <div class="ring-wrap">
+          <svg width="170" height="170" viewBox="0 0 170 170">
+            <circle cx="85" cy="85" r="73" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="8"/>
+            <circle id="pomoArc" cx="85" cy="85" r="73" fill="none" stroke="#a78bfa" stroke-width="8"
+              stroke-linecap="round" stroke-dasharray="459" stroke-dashoffset="0"/>
+          </svg>
+          <div class="ring-center">
+            <div class="ring-time" id="pomoDisp">25:00</div>
+            <div class="ring-label" id="pomoLbl">Focus</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:7px">
+          <button class="btn btn-v" id="pomoBtn" onclick="togPomo()">Iniciar</button>
+          <button class="btn btn-o" onclick="resetPomo()">Reset</button>
+        </div>
+        <div style="width:100%;display:flex;gap:6px">
+          <input class="inp" id="taskInp" placeholder="¿Qué estás trabajando?" style="flex:1">
+          <button class="btn btn-o" onclick="setTask()" style="padding:8px 12px;border-radius:8px;font-size:.78rem">OK</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="sec-label">Estadísticas de hoy</div>
+        <div class="sbox"><span class="sbox-l">Sesiones completadas</span><span class="sbox-v" id="stSessions">0</span></div>
+        <div class="sbox"><span class="sbox-l">Minutos de foco</span><span class="sbox-v" id="stMins">0 min</span></div>
+        <div class="sbox"><span class="sbox-l">Racha</span><span class="sbox-v" id="stStreak">🔥 0 días</span></div>
+        <div class="sec-label" style="margin-top:1rem">Registro</div>
+        <div id="pomoLog" style="max-height:150px;overflow-y:auto">
+          <p style="font-size:.73rem;color:var(--muted);text-align:center;padding:.8rem">Sin sesiones aún.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ RUIDO BLANCO ══ -->
+  <div class="panel" id="panel-noise">
+    <div class="g2">
+      <div class="card">
+        <div class="sec-label">Sonidos ambientales</div>
+        <button class="sound-btn" onclick="togSound(this)"><span class="si">🌧️</span><span class="sn">Lluvia suave</span><span class="sound-st">Inactivo</span></button>
+        <button class="sound-btn" onclick="togSound(this)"><span class="si">☕</span><span class="sn">Cafetería</span><span class="sound-st">Inactivo</span></button>
+        <button class="sound-btn" onclick="togSound(this)"><span class="si">🔥</span><span class="sn">Chimenea</span><span class="sound-st">Inactivo</span></button>
+        <button class="sound-btn" onclick="togSound(this)"><span class="si">🌲</span><span class="sn">Bosque</span><span class="sound-st">Inactivo</span></button>
+        <button class="sound-btn" onclick="togSound(this)"><span class="si">🌊</span><span class="sn">Olas del mar</span><span class="sound-st">Inactivo</span></button>
+        <button class="sound-btn" onclick="togSound(this)"><span class="si">⛈️</span><span class="sn">Tormenta</span><span class="sound-st">Inactivo</span></button>
+        <button class="sound-btn" onclick="togSound(this)"><span class="si">🌀</span><span class="sn">Ventilador</span><span class="sound-st">Inactivo</span></button>
+        <button class="sound-btn" onclick="togSound(this)"><span class="si">⬜</span><span class="sn">Ruido blanco puro</span><span class="sound-st">Inactivo</span></button>
+      </div>
+      <div class="card">
+        <div class="sec-label">Mezcla personalizada</div>
+        <div class="vol-row"><span class="vol-l">🌧️ Lluvia</span><input type="range" class="vol-sl" min="0" max="100" value="0" oninput="updV(this,'vr')"><span class="vol-v" id="vr">0%</span></div>
+        <div class="vol-row"><span class="vol-l">☕ Café</span><input type="range" class="vol-sl" min="0" max="100" value="0" oninput="updV(this,'vc')"><span class="vol-v" id="vc">0%</span></div>
+        <div class="vol-row"><span class="vol-l">🔥 Fuego</span><input type="range" class="vol-sl" min="0" max="100" value="0" oninput="updV(this,'vf')"><span class="vol-v" id="vf">0%</span></div>
+        <div class="vol-row"><span class="vol-l">🌲 Bosque</span><input type="range" class="vol-sl" min="0" max="100" value="0" oninput="updV(this,'vb')"><span class="vol-v" id="vb">0%</span></div>
+        <div class="vol-row"><span class="vol-l">🌊 Mar</span><input type="range" class="vol-sl" min="0" max="100" value="0" oninput="updV(this,'vm')"><span class="vol-v" id="vm">0%</span></div>
+        <div style="margin-top:.9rem;padding:11px 13px;background:var(--surface2);border-radius:var(--r-sm);border-left:3px solid var(--accent4)">
+          <p style="font-size:.75rem;color:var(--text2);line-height:1.6"><strong style="color:var(--accent4)">💡 Ciencia:</strong> El ruido de naturaleza reduce el cortisol un 28% y mejora la concentración hasta un 30% (Universidad de Michigan, 2022).</p>
+        </div>
+        <button class="btn btn-v" style="width:100%;justify-content:center;margin-top:.9rem;border-radius:9px" onclick="openModal()">Guardar mezcla — PRO</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HÁBITOS ══ -->
+  <div class="panel" id="panel-habits">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:1.1rem">
+        <div class="sec-label" style="margin-bottom:0">Semana actual</div>
+        <div style="display:flex;gap:6px">
+          <input class="inp" id="habitInp" placeholder="Nuevo hábito..." style="width:170px">
+          <button class="btn btn-v" onclick="addHabit()" style="padding:8px 13px;border-radius:8px;font-size:.78rem">+ Añadir</button>
+        </div>
+      </div>
+      <div class="hgrid-hdr">
+        <span style="font-size:.68rem;color:var(--muted)">Hábito</span>
+        <span class="day-l">L</span><span class="day-l">M</span><span class="day-l">X</span>
+        <span class="day-l">J</span><span class="day-l">V</span><span class="day-l">S</span><span class="day-l">D</span>
+      </div>
+      <div id="habitList"></div>
+      <div class="pbar-w"><div class="pbar" id="habitPb" style="width:0%"></div></div>
+      <p style="font-size:.7rem;color:var(--muted);text-align:right;margin-top:5px" id="habitPl">0% completado hoy</p>
+    </div>
+  </div>
+
+  <!-- ══ MÚSICA ══ -->
+  <div class="panel" id="panel-music">
+    <div class="g2">
+      <div class="card" style="display:flex;flex-direction:column;gap:.9rem">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <div class="album" id="albumArt">🎵</div>
+          <div>
+            <div style="font-size:.9rem;font-weight:700" id="trackName">Lo-fi Study Beats</div>
+            <div style="font-size:.7rem;color:var(--muted);margin-top:3px" id="trackType">Concentración · 128 BPM</div>
+          </div>
+        </div>
+        <div><div class="progress-t"><div class="progress-f" id="progFill"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:.66rem;color:var(--muted);font-family:var(--mono);margin-top:4px"><span>0:00</span><span>4:07</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;justify-content:center">
+          <button class="ctrl" onclick="prevT()">⏮</button>
+          <button class="ctrl-play" id="playBtn" onclick="togPlay()">▶</button>
+          <button class="ctrl" onclick="nextT()">⏭</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:7px">
+          <span style="font-size:11px">🔊</span>
+          <input type="range" class="vol-sl" min="0" max="100" value="70" style="flex:1" oninput="updV(this,'mvol')">
+          <span class="vol-v" id="mvol">70%</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="sec-label">Playlists</div>
+        <div class="pl-item active" onclick="selPl(this,'Lo-fi Study Beats','🎵','Concentración · 128 BPM')">
+          <div class="pl-thumb" style="background:rgba(167,139,250,.1)">🎵</div>
+          <div><div class="pl-name">Lo-fi Beats</div><div class="pl-meta">32 pistas · 2h 14m</div></div>
+          <span class="pl-badge b-free">Free</span>
+        </div>
+        <div class="pl-item" onclick="selPl(this,'Alpha Waves — Deep Focus','🧠','Ondas alpha · 40Hz · Foco profundo')">
+          <div class="pl-thumb" style="background:rgba(52,211,153,.08)">🧠</div>
+          <div><div class="pl-name">Alpha Waves</div><div class="pl-meta">18 pistas · 4h 30m</div></div>
+          <span class="pl-badge b-pro">PRO</span>
+        </div>
+        <div class="pl-item" onclick="selPl(this,'Jazz Café Session','🎷','Jazz suave · Sin letra')">
+          <div class="pl-thumb" style="background:rgba(251,191,36,.08)">🎷</div>
+          <div><div class="pl-name">Jazz Café</div><div class="pl-meta">45 pistas · 3h 05m</div></div>
+          <span class="pl-badge b-free">Free</span>
+        </div>
+        <div class="pl-item" onclick="selPl(this,'Binaural Beta — Deep Work','⚡','15-30Hz · Máxima productividad')">
+          <div class="pl-thumb" style="background:rgba(244,114,182,.08)">⚡</div>
+          <div><div class="pl-name">Binaural Beta</div><div class="pl-meta">8 pistas · 8h continuas</div></div>
+          <span class="pl-badge b-pro">PRO</span>
+        </div>
+        <div class="pl-item" onclick="selPl(this,'Classical Focus','🎻','Mozart · Bach · Chopin')">
+          <div class="pl-thumb" style="background:rgba(96,165,250,.08)">🎻</div>
+          <div><div class="pl-name">Classical Focus</div><div class="pl-meta">60 pistas · 5h 20m</div></div>
+          <span class="pl-badge b-free">Free</span>
+        </div>
+        <div class="pl-item" onclick="openModal()">
+          <div class="pl-thumb" style="background:rgba(167,139,250,.1)">🌌</div>
+          <div><div class="pl-name">Gamma Waves · 40Hz</div><div class="pl-meta">Neurociencia cognitiva</div></div>
+          <span class="pl-badge b-pro">PRO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PLAN IA ══ -->
+  <div class="panel" id="panel-ai">
+    <div class="card" style="margin-bottom:1.1rem">
+      <div style="text-align:center;margin-bottom:1.3rem">
+        <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;border:1px solid rgba(52,211,153,.25);background:rgba(52,211,153,.05);color:var(--accent3);font-size:.66rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.7rem">
+          <div style="width:5px;height:5px;border-radius:50%;background:var(--accent3);animation:livePulse 1.5s infinite"></div>
+          Solo en ZenPulse · Exclusivo
+        </div>
+        <h2 style="font-size:1.25rem;font-weight:800;letter-spacing:-.5px;margin-bottom:5px">Tu Plan de Foco con IA</h2>
+        <p style="font-size:.79rem;color:var(--text2)">30 segundos de check-in → tu sesión de trabajo perfecta</p>
+      </div>
+
+      <div class="sec-label">1 · Estado de ánimo</div>
+      <div class="mood-row" id="moodRow">
+        <button class="mbtn" onclick="selM(this,'exhausted')"><span class="memoji">😮‍💨</span><span class="mlabel">Agotado</span></button>
+        <button class="mbtn" onclick="selM(this,'tired')"><span class="memoji">😴</span><span class="mlabel">Cansado</span></button>
+        <button class="mbtn sel" onclick="selM(this,'neutral')"><span class="memoji">😐</span><span class="mlabel">Normal</span></button>
+        <button class="mbtn" onclick="selM(this,'good')"><span class="memoji">😊</span><span class="mlabel">Bien</span></button>
+        <button class="mbtn" onclick="selM(this,'energized')"><span class="memoji">⚡</span><span class="mlabel">Activado</span></button>
+      </div>
+
+      <div class="sec-label">2 · Niveles actuales</div>
+      <div class="sl-group">
+        <div class="sl-row"><span class="sl-n">🧠 Concentración</span><input type="range" class="f-sl" min="1" max="10" value="6" id="slf" oninput="updSl(this,'svf')"><span class="sl-v" id="svf">6</span></div>
+        <div class="sl-row"><span class="sl-n">⚡ Energía</span><input type="range" class="f-sl" min="1" max="10" value="5" id="sle" oninput="updSl(this,'sve')"><span class="sl-v" id="sve">5</span></div>
+        <div class="sl-row"><span class="sl-n">😰 Estrés</span><input type="range" class="f-sl" min="1" max="10" value="4" id="sls" oninput="updSl(this,'svs')"><span class="sl-v" id="svs">4</span></div>
+        <div class="sl-row"><span class="sl-n">☕ Cafeína (tazas)</span><input type="range" class="f-sl" min="0" max="5" value="1" id="slc" oninput="updSl(this,'svc')"><span class="sl-v" id="svc">1</span></div>
+      </div>
+
+      <div class="sec-label">3 · Tipo de tarea</div>
+      <div class="ctx-row" id="ctxRow">
+        <button class="cbtn sel" onclick="selC(this,'creative')">🎨 Trabajo creativo</button>
+        <button class="cbtn" onclick="selC(this,'analytical')">📊 Análisis / datos</button>
+        <button class="cbtn" onclick="selC(this,'writing')">✍️ Escritura</button>
+        <button class="cbtn" onclick="selC(this,'coding')">💻 Programar</button>
+        <button class="cbtn" onclick="selC(this,'meetings')">📞 Reuniones</button>
+        <button class="cbtn" onclick="selC(this,'learning')">📚 Estudiar</button>
+      </div>
+      <button class="gen-btn" id="genBtn" onclick="genPlan()">✦ Generar mi Plan de Foco personalizado</button>
+    </div>
+
+    <div class="loader" id="aiLoader">
+      <div class="ldots"><div class="ldot"></div><div class="ldot"></div><div class="ldot"></div></div>
+      <div class="loader-m" id="loaderMsg">Analizando tu estado cognitivo...</div>
+    </div>
+
+    <div class="ai-res" id="aiRes">
+      <div class="score-card">
+        <div class="score-circ">
+          <svg width="96" height="96" viewBox="0 0 96 96">
+            <circle cx="48" cy="48" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="7"/>
+            <circle id="aiArc" cx="48" cy="48" r="40" fill="none" stroke="url(#ag)" stroke-width="7"
+              stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="251"/>
+            <defs><linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#34d399"/>
+            </linearGradient></defs>
+          </svg>
+          <div class="score-ov">
+            <div class="score-n" id="scoreN">—</div>
+            <div class="score-sub">FOCUS SCORE</div>
+          </div>
+        </div>
+        <div>
+          <div class="score-title" id="scoreT">—</div>
+          <div class="score-desc" id="scoreD">—</div>
+          <div class="tags" id="scoreTags"></div>
+        </div>
+      </div>
+
+      <div class="g3">
+        <div class="card"><div style="font-size:19px;margin-bottom:5px">⏱</div><div style="font-size:.68rem;color:var(--muted);margin-bottom:3px">Sesión recomendada</div><div style="font-family:var(--mono);font-size:1.25rem;font-weight:500;color:var(--accent)" id="aiSess">—</div><div style="font-size:.68rem;color:var(--muted);margin-top:3px" id="aiSessD">—</div></div>
+        <div class="card"><div style="font-size:19px;margin-bottom:5px">☕</div><div style="font-size:.68rem;color:var(--muted);margin-bottom:3px">Descanso óptimo</div><div style="font-family:var(--mono);font-size:1.25rem;font-weight:500;color:var(--accent)" id="aiBreak">—</div><div style="font-size:.68rem;color:var(--muted);margin-top:3px" id="aiBreakD">—</div></div>
+        <div class="card"><div style="font-size:19px;margin-bottom:5px">🎯</div><div style="font-size:.68rem;color:var(--muted);margin-bottom:3px">Sesiones posibles</div><div style="font-family:var(--mono);font-size:1.25rem;font-weight:500;color:var(--accent)" id="aiCount">—</div><div style="font-size:.68rem;color:var(--muted);margin-top:3px" id="aiCountD">—</div></div>
+      </div>
+
+      <div class="card">
+        <div class="sec-label">Tu horario para hoy</div>
+        <div id="aiTl"></div>
+      </div>
+
+      <div class="insight-box">
+        <div class="sec-label">Insight personalizado</div>
+        <p id="aiInsight">—</p>
+      </div>
+
+      <div class="card" style="display:flex;align-items:center;gap:1rem">
+        <div style="font-size:38px;flex-shrink:0">🎧</div>
+        <div>
+          <div style="font-size:.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:4px">Sonido ideal para tu estado</div>
+          <div style="font-size:.9rem;font-weight:700" id="aiMusic">—</div>
+          <div style="font-size:.72rem;color:var(--text2);margin-top:2px" id="aiMusicD">—</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:7px;flex-wrap:wrap">
+        <button class="btn btn-o" style="flex:1;justify-content:center" onclick="copyScore()">📋 Copiar score</button>
+        <button class="btn btn-o" style="flex:1;justify-content:center" onclick="shareX()">🐦 Compartir en X</button>
+        <button class="btn btn-o" style="flex:1;justify-content:center" onclick="resetAI()">🔄 Recalcular</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD INLINE -->
+  <div style="margin:1.8rem 0">
+    <div class="ad-inner h250" style="border-radius:var(--r)">
+      📢 Google AdSense 300×250
+    </div>
+  </div>
+
+  <!-- PRO -->
+  <div class="pro-section" id="pro">
+    <div class="pro-badge">✦ ZenPulse PRO</div>
+    <h2>El máximo nivel de productividad</h2>
+    <p>Todo lo que necesitas para rendir al más alto nivel, todos los días.</p>
+    <div class="pro-price">4,99€ <span>/ mes</span></div>
+    <div class="pro-note">o <strong style="color:var(--accent4)">39,99€/año — ahorra un 40%</strong></div>
+    <div class="pro-features">
+      <div class="pf">Estadísticas avanzadas y analítica semanal</div>
+      <div class="pf">Playlists exclusivas (binaural, alpha, gamma)</div>
+      <div class="pf">Mezclas de sonido sincronizadas en la nube</div>
+      <div class="pf">Sync en todos tus dispositivos</div>
+      <div class="pf">Historial de Focus Score con gráficas</div>
+      <div class="pf">Exportar plan a Google Calendar</div>
+      <div class="pf">Alertas de burnout detectadas por IA</div>
+      <div class="pf">Sin anuncios, siempre y para siempre</div>
+    </div>
+    <button class="pro-cta" onclick="openModal()">Empezar prueba gratis — 7 días sin tarjeta</button>
+    <p class="pro-trust">✓ Sin compromiso · ✓ Cancela cuando quieras · ✓ Pago seguro con Stripe</p>
+  </div>
+
+  <!-- AD INLINE 2 -->
+  <div style="margin:1.8rem 0">
+    <div class="ad-inner h90" style="border-radius:var(--r)">📢 Google AdSense 728×90</div>
+  </div>
+
+  <!-- AFILIADOS -->
+  <div id="recursos">
+    <div style="font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem">🛒 Herramientas que recomendamos</div>
+    <div class="af-grid">
+      <a href="#" class="af-card" onclick="toast('🔗 Enlace de afiliado...')">
+        <div class="af-em">🎧</div>
+        <div class="af-name">Sony WH-1000XM5</div>
+        <div class="af-desc">Los mejores auriculares con cancelación activa de ruido para foco profundo.</div>
+        <span class="af-tag">✦ Top ventas</span>
+      </a>
+      <a href="#" class="af-card" onclick="toast('🔗 Enlace de afiliado...')">
+        <div class="af-em">🪑</div>
+        <div class="af-name">Silla ergonómica Secretlab</div>
+        <div class="af-desc">Trabaja horas sin dolor. Una buena silla es la mejor inversión en productividad.</div>
+        <span class="af-tag">✦ Recomendado</span>
+      </a>
+      <a href="#" class="af-card" onclick="toast('🔗 Enlace de afiliado...')">
+        <div class="af-em">📓</div>
+        <div class="af-name">Notion — Organización total</div>
+        <div class="af-desc">Combina ZenPulse con Notion para tener el sistema de productividad definitivo.</div>
+        <span class="af-tag">✦ Gratis para empezar</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- BLOG -->
+  <div id="blog">
+    <div style="font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem">📖 Ciencia de la productividad</div>
+    <div class="blog-grid">
+      <div class="blog-card" onclick="toast('📖 Próximamente en el blog...')">
+        <div class="blog-cat">Técnica Pomodoro</div>
+        <div class="blog-title">Por qué 25 minutos es el tiempo ideal según la neurociencia</div>
+        <div class="blog-meta">8 min · 12.4k lecturas</div>
+      </div>
+      <div class="blog-card" onclick="toast('📖 Próximamente en el blog...')">
+        <div class="blog-cat">Ruido Blanco</div>
+        <div class="blog-title">Qué música escuchar para estudiar según el tipo de tarea</div>
+        <div class="blog-meta">6 min · 9.8k lecturas</div>
+      </div>
+      <div class="blog-card" onclick="toast('📖 Próximamente en el blog...')">
+        <div class="blog-cat">Hábitos</div>
+        <div class="blog-title">Hábitos atómicos: cómo construir rutinas que duran de verdad</div>
+        <div class="blog-meta">10 min · 7.2k lecturas</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-in">
+    <div>
+      <div class="footer-logo"><div class="li">⚡</div>ZenPulse</div>
+      <p class="footer-desc">La herramienta de productividad más inteligente. Gratis para siempre en lo esencial. Con IA incluida.</p>
+    </div>
+    <div>
+      <div class="footer-h">Herramientas</div>
+      <a href="#" class="footer-a">Temporizador Pomodoro</a>
+      <a href="#" class="footer-a">Ruido Blanco Online</a>
+      <a href="#" class="footer-a">Tracker de Hábitos</a>
+      <a href="#" class="footer-a">Música para Concentrarse</a>
+      <a href="#" class="footer-a">Plan IA de Productividad</a>
+    </div>
+    <div>
+      <div class="footer-h">Empresa</div>
+      <a href="#" class="footer-a">Blog de productividad</a>
+      <a href="#" class="footer-a">Programa de afiliados</a>
+      <a href="#" class="footer-a">Política de privacidad</a>
+      <a href="#" class="footer-a">Términos de uso</a>
+      <a href="#" class="footer-a">Contacto</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ZenPulse · Hecho con ☕ en España 🇪🇸</span>
+    <span>Pomodoro · Ruido Blanco · Hábitos · IA</span>
+  </div>
+</footer>
+
+<!-- ═══════════ MODAL PRO ═══════════ -->
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <div class="pro-badge" style="margin-bottom:.8rem">✦ ZenPulse PRO</div>
+    <h2 style="font-size:1.3rem;font-weight:800;margin-bottom:.4rem">Prueba gratuita — 7 días</h2>
+    <p style="font-size:.78rem;color:var(--text2);margin-bottom:1.3rem">Sin tarjeta de crédito. Cancela cuando quieras.</p>
+    <input class="inp" placeholder="tu@email.com" style="width:100%;margin-bottom:8px">
+    <button class="pro-cta" style="width:100%;max-width:none;margin-bottom:.7rem" onclick="toast('🎉 ¡Prueba activada! Revisa tu correo.');closeModal()">
+      Activar prueba gratis
+    </button>
+    <p style="font-size:.66rem;color:var(--muted)">Luego 4,99€/mes · Cancela desde la app · Stripe</p>
+  </div>
+</div>
+
+<!-- ═══════════ TOAST ═══════════ -->
+<div class="toast" id="toast">—</div>
+
+<!-- ═══════════ SCHEMA SEO ═══════════ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"ZenPulse","description":"Temporizador Pomodoro online, ruido blanco para concentrarse, tracker de hábitos y plan de productividad con inteligencia artificial. Gratis.","url":"https://zenpulse.es","applicationCategory":"Productivity","operatingSystem":"Web, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"3241"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué es la técnica Pomodoro?","acceptedAnswer":{"@type":"Answer","text":"La técnica Pomodoro es un método de gestión del tiempo que divide el trabajo en intervalos de 25 minutos separados por descansos cortos de 5 minutos. Fue desarrollada por Francesco Cirillo a finales de los 80. ZenPulse incluye un temporizador Pomodoro online gratuito."}},{"@type":"Question","name":"¿El ruido blanco ayuda a concentrarse?","acceptedAnswer":{"@type":"Answer","text":"Sí. Estudios científicos demuestran que el ruido blanco y los sonidos de naturaleza mejoran la concentración hasta un 30% al bloquear distracciones. ZenPulse ofrece 8 sonidos ambientales gratuitos y una mezcladora personalizada."}},{"@type":"Question","name":"¿Es gratis ZenPulse?","acceptedAnswer":{"@type":"Answer","text":"Sí, ZenPulse es completamente gratuito para las funciones principales: Pomodoro, ruido blanco, tracker de hábitos, música focus y el plan IA. La versión PRO (4,99€/mes) añade funciones avanzadas como estadísticas, playlists exclusivas y sincronización en la nube."}}]}
+</script>
+
+<script>
+/* ══════════════════════════
+   TABS
+══════════════════════════ */
+function sw(id,el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('panel-'+id).classList.add('active');
+}
+
+/* ══════════════════════════
+   POMODORO
+══════════════════════════ */
+let pRun=false,pSecs=1500,pMax=1500,pInt=null,sessions=0,totalMins=0,curTask='';
+
+function togPomo(){
+  if(pRun){clearInterval(pInt);pRun=false;document.getElementById('pomoBtn').textContent='Reanudar'}
+  else{
+    pRun=true;document.getElementById('pomoBtn').textContent='Pausar';
+    pInt=setInterval(()=>{
+      pSecs--;
+      if(pSecs<=0){
+        clearInterval(pInt);pRun=false;sessions++;totalMins+=Math.round(pMax/60);
+        document.getElementById('stSessions').textContent=sessions;
+        document.getElementById('stMins').textContent=totalMins+' min';
+        document.getElementById('stStreak').textContent='🔥 '+sessions+' días';
+        addLog(curTask||'Sesión completada');
+        document.getElementById('pomoBtn').textContent='Iniciar';
+        pSecs=pMax;toast('🎉 ¡Sesión completada! Descansa un momento.');
+      }
+      updRing();
+    },1000);
+  }
+}
+function resetPomo(){clearInterval(pInt);pRun=false;pSecs=pMax;document.getElementById('pomoBtn').textContent='Iniciar';updRing()}
+function setMode(el,mins,lbl){
+  document.querySelectorAll('.pmode').forEach(m=>m.classList.remove('active'));
+  el.classList.add('active');pMax=mins*60;resetPomo();
+  document.getElementById('pomoLbl').textContent=lbl;
+}
+function setTask(){curTask=document.getElementById('taskInp').value;toast('📝 Tarea: '+(curTask||'sin título'));document.getElementById('taskInp').value=''}
+function updRing(){
+  document.getElementById('pomoArc').style.strokeDashoffset=459*(1-pSecs/pMax);
+  const m=Math.floor(pSecs/60),s=pSecs%60;
+  document.getElementById('pomoDisp').textContent=p2(m)+':'+p2(s);
+}
+function addLog(task){
+  const t=new Date(),ts=p2(t.getHours())+':'+p2(t.getMinutes());
+  const log=document.getElementById('pomoLog');
+  if(log.querySelector('p'))log.innerHTML='';
+  const el=document.createElement('div');el.className='log-item';
+  el.innerHTML='<span>'+task+'</span><span class="log-t">'+ts+'</span>';
+  log.prepend(el);
+}
+function p2(n){return n<10?'0'+n:''+n}
+
+/* ══════════════════════════
+   RUIDO BLANCO
+══════════════════════════ */
+function togSound(btn){
+  const on=btn.classList.toggle('on');
+  btn.querySelector('.sound-st').textContent=on?'▶ Reproduciendo':'Inactivo';
+  if(on)toast('🎧 '+btn.querySelector('.sn').textContent+' activado');
+}
+function updV(el,id){document.getElementById(id).textContent=el.value+'%'}
+
+/* ══════════════════════════
+   HÁBITOS
+══════════════════════════ */
+let habits=[
+  {id:1,name:'🏃 Ejercicio',days:[false,false,false,false,false,false,false],streak:3},
+  {id:2,name:'📚 Lectura',days:[true,false,false,false,false,false,false],streak:7},
+  {id:3,name:'💧 2L de agua',days:[true,true,false,false,false,false,false],streak:14},
+  {id:4,name:'🧘 Meditación',days:[false,true,false,false,false,false,false],streak:2},
+];
+function rndHabits(){
+  document.getElementById('habitList').innerHTML=habits.map(h=>
+    `<div class="hrow"><div class="hname">${h.name}<span class="streak">🔥${h.streak}</span></div>
+    ${h.days.map((d,i)=>`<div class="hcheck${d?' done':''}" onclick="togHabit(${h.id},${i})">${d?'✓':''}</div>`).join('')}
+    </div>`
+  ).join('');
+  const today=(new Date().getDay()+6)%7;
+  const done=habits.filter(h=>h.days[today]).length;
+  const pct=habits.length?Math.round(done/habits.length*100):0;
+  document.getElementById('habitPb').style.width=pct+'%';
+  document.getElementById('habitPl').textContent=pct+'% completado hoy ('+done+'/'+habits.length+')';
+}
+function togHabit(id,day){
+  const h=habits.find(h=>h.id===id);if(!h)return;
+  h.days[day]=!h.days[day];h.streak=Math.max(0,h.streak+(h.days[day]?1:-1));rndHabits();
+}
+function addHabit(){
+  const inp=document.getElementById('habitInp'),name=inp.value.trim();if(!name)return;
+  habits.push({id:Date.now(),name,days:[false,false,false,false,false,false,false],streak:0});
+  inp.value='';rndHabits();toast('✅ Hábito añadido: '+name);
+}
+rndHabits();
+
+/* ══════════════════════════
+   MÚSICA
+══════════════════════════ */
+let mPlay=false,pInt2=null,pVal=28;
+const tracks=[
+  {name:'Lo-fi Study Beats',type:'Concentración · 128 BPM',e:'🎵'},
+  {name:'Deep Focus Instrumental',type:'Sin letra · Baja intensidad',e:'🎸'},
+  {name:'Classical Morning',type:'Bach · Goldberg Variations',e:'🎹'},
+];
+let tIdx=0;
+function togPlay(){
+  mPlay=!mPlay;document.getElementById('playBtn').textContent=mPlay?'⏸':'▶';
+  document.getElementById('albumArt').classList.toggle('playing',mPlay);
+  if(mPlay){pInt2=setInterval(()=>{pVal=(pVal+.22)%100;document.getElementById('progFill').style.width=Math.round(pVal)+'%'},300)}
+  else clearInterval(pInt2);
+}
+function prevT(){tIdx=(tIdx-1+tracks.length)%tracks.length;ldTrack()}
+function nextT(){tIdx=(tIdx+1)%tracks.length;ldTrack()}
+function ldTrack(){const t=tracks[tIdx];document.getElementById('trackName').textContent=t.name;document.getElementById('trackType').textContent=t.type;document.getElementById('albumArt').textContent=t.e}
+function selPl(el,name,e,type){
+  document.querySelectorAll('.pl-item').forEach(p=>p.classList.remove('active'));el.classList.add('active');
+  document.getElementById('trackName').textContent=name;document.getElementById('trackType').textContent=type;document.getElementById('albumArt').textContent=e;
+  if(!mPlay)togPlay();
+}
+
+/* ══════════════════════════
+   PLAN IA
+══════════════════════════ */
+let aiMood='neutral',aiCtx='creative';
+function selM(el,v){document.querySelectorAll('#moodRow .mbtn').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');aiMood=v}
+function selC(el,v){document.querySelectorAll('#ctxRow .cbtn').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');aiCtx=v}
+function updSl(el,id){document.getElementById(id).textContent=el.value}
+
+const lMsgs=['Analizando tu estado cognitivo...','Calculando ventanas de energía...','Diseñando tu horario óptimo...','Seleccionando música ideal...','Generando tu plan personalizado...'];
+
+function genPlan(){
+  document.getElementById('genBtn').disabled=true;
+  document.getElementById('aiRes').classList.remove('vis');
+  document.getElementById('aiLoader').classList.add('vis');
+  let i=0;const iv=setInterval(()=>{document.getElementById('loaderMsg').textContent=lMsgs[i++%lMsgs.length]},720);
+  setTimeout(()=>{
+    clearInterval(iv);document.getElementById('aiLoader').classList.remove('vis');
+    document.getElementById('genBtn').disabled=false;
+    computeAI();document.getElementById('aiRes').classList.add('vis');
+    setTimeout(()=>document.getElementById('aiRes').scrollIntoView({behavior:'smooth',block:'start'}),100);
+  },3600);
+}
+
+function computeAI(){
+  const f=+document.getElementById('slf').value,e=+document.getElementById('sle').value,
+        s=+document.getElementById('sls').value,c=+document.getElementById('slc').value;
+  const mB={exhausted:-20,tired:-10,neutral:0,good:10,energized:18};
+  const cP={creative:0,analytical:5,writing:-3,coding:5,meetings:-8,learning:2};
+  let sc=Math.min(100,Math.max(10,Math.round(f*5+e*4-s*3+c*3+(mB[aiMood]||0)+(cP[aiCtx]||0))));
+  window._sc=sc;
+
+  let sM,bM,cnt;
+  if(sc>=75){sM=50;bM=10;cnt=5}else if(sc>=55){sM=35;bM=8;cnt=4}else if(sc>=35){sM=25;bM=10;cnt=3}else{sM=15;bM=15;cnt=2}
+
+  let title,desc;
+  if(sc>=80){title='Estado de flujo óptimo';desc='Condiciones ideales para trabajo profundo. Aprovecha esta ventana de alta concentración.'}
+  else if(sc>=60){title='Foco sólido';desc='Buen estado para trabajar. Evita el multitasking y mantén el entorno libre de distracciones.'}
+  else if(sc>=40){title='Foco moderado';desc='Capacidad reducida. Ideal para tareas rutinarias o de menor carga cognitiva.'}
+  else{title='Modo recuperación';desc='Tu cerebro necesita recuperarse. Prioriza tareas mecánicas o descansa antes de empezar.'}
+
+  const arc=document.getElementById('aiArc');
+  arc.style.transition='stroke-dashoffset 1.2s ease';arc.style.strokeDashoffset=251-(sc/100*251);
+  document.getElementById('scoreN').textContent=sc;
+  document.getElementById('scoreT').textContent=title;
+  document.getElementById('scoreD').textContent=desc;
+
+  const tags=[];
+  if(e>=7)tags.push(['Alta energía','#34d399','rgba(52,211,153,.08)']);
+  if(s<=3)tags.push(['Bajo estrés','#a78bfa','rgba(167,139,250,.08)']);
+  if(f>=7)tags.push(['Concentrado','#fbbf24','rgba(251,191,36,.08)']);
+  if(c>=3)tags.push(['Cafeinado ☕','#f472b6','rgba(244,114,182,.08)']);
+  if(aiMood==='energized')tags.push(['Motivado ⚡','#34d399','rgba(52,211,153,.08)']);
+  if(s>=7)tags.push(['Estrés alto','#f472b6','rgba(244,114,182,.08)']);
+  document.getElementById('scoreTags').innerHTML=tags.map(([t,c,bg])=>
+    `<span class="tag" style="color:${c};background:${bg};border-color:${c}44">${t}</span>`
+  ).join('');
+
+  document.getElementById('aiSess').textContent=sM+' min';
+  document.getElementById('aiSessD').textContent=sM>=45?'Sesión deep work. Tu nivel lo aguanta.':sM>=25?'Ritmo sostenible y efectivo.':'Sesiones cortas para mantener energía.';
+  document.getElementById('aiBreak').textContent=bM+' min';
+  document.getElementById('aiBreakD').textContent=bM>=12?'Descansa bien. Sal a caminar.':'Descanso activo. Muévete.';
+  document.getElementById('aiCount').textContent=cnt+'x';
+  document.getElementById('aiCountD').textContent='Objetivo realista para hoy.';
+
+  const now=new Date();let cur=new Date(now);let tlHtml='';
+  for(let i=0;i<cnt;i++){
+    tlHtml+=tlRow(p2(cur.getHours())+':'+p2(cur.getMinutes()),'Sesión · '+sM+' min','#a78bfa','Focus',i*.08);
+    cur=new Date(cur.getTime()+sM*60000);
+    if(i<cnt-1){tlHtml+=tlRow(p2(cur.getHours())+':'+p2(cur.getMinutes()),'Descanso · '+bM+' min','#34d399','Pausa',i*.08+.04);cur=new Date(cur.getTime()+bM*60000)}
+  }
+  document.getElementById('aiTl').innerHTML=tlHtml;
+
+  const ins={
+    exhausted:'Con agotamiento elevado la corteza prefrontal trabaja al mínimo. <strong>Recomendación:</strong> 10 min de respiración antes de empezar y evita decisiones importantes.',
+    tired:'El cansancio reduce la memoria de trabajo un 40%. <strong>Recomendación:</strong> empieza con tareas mecánicas para entrar en calor.',
+    neutral:'Estado neutro, ideal para coger momentum. <strong>Recomendación:</strong> comienza con la tarea más difícil ("eat the frog").',
+    good:'Estado favorable. <strong>Aprovecha:</strong> afronta los problemas más complejos ahora. En este estado la productividad puede ser 2x mayor.',
+    energized:'⚡ Alta activación. <strong>Cuidado:</strong> el exceso de energía puede generar dispersión. Canalízala en trabajo creativo o decisiones importantes.',
+  };
+  const sNote=s>=7?' <strong>Aviso:</strong> Estrés elevado — considera 5 min de mindfulness entre sesiones.':'';
+  document.getElementById('aiInsight').innerHTML=(ins[aiMood]||ins.neutral)+sNote;
+
+  const mMap={
+    creative:{n:'Lo-fi Beats + Ruido rosa',d:'Estimula la creatividad sin saturar el hemisferio izquierdo.'},
+    analytical:{n:'Música clásica barroca (Bach)',d:'El efecto Mozart mejora el razonamiento espaciotemporal.'},
+    writing:{n:'Lluvia suave + Café ambient',d:'El ruido a 70dB activa el pensamiento abstracto.'},
+    coding:{n:'Binaural Beta 15Hz',d:'Las ondas beta sincronizan el estado de alerta cognitiva.'},
+    meetings:{n:'Silencio total',d:'Para comunicación verbal, el audio externo compite con el procesamiento del habla.'},
+    learning:{n:'Alpha Waves 10Hz',d:'Las ondas alpha facilitan la consolidación de nueva información.'},
+  };
+  const m=mMap[aiCtx]||mMap.creative;
+  document.getElementById('aiMusic').textContent=m.n;
+  document.getElementById('aiMusicD').textContent=m.d;
+}
+
+function tlRow(time,label,color,type,delay){
+  const bg=type==='Focus'?'rgba(167,139,250,.1)':'rgba(52,211,153,.1)';
+  return`<div class="tl-item" style="animation-delay:${delay}s">
+    <span class="tl-t">${time}</span>
+    <div class="tl-d" style="background:${color}"></div>
+    <div class="tl-c">${label}<span class="tl-tag" style="background:${bg};color:${color};border:1px solid ${color}44">${type}</span></div>
+  </div>`;
+}
+
+function copyScore(){navigator.clipboard?.writeText('Mi Focus Score en ZenPulse: '+(window._sc||'—')+'/100 ✦ zenpulse.es').catch(()=>{});toast('📋 Score copiado!')}
+function shareX(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('Mi Focus Score hoy: '+(window._sc||'—')+'/100 ⚡ Descúbrelo gratis en ZenPulse — productividad con IA ✦ zenpulse.es'),'_blank')}
+function resetAI(){document.getElementById('aiRes').classList.remove('vis');window.scrollTo({top:0,behavior:'smooth'})}
+
+/* ══════════════════════════
+   MODAL & TOAST
+══════════════════════════ */
+function openModal(){document.getElementById('overlay').classList.add('open')}
+function closeModal(e){if(!e||e.target===document.getElementById('overlay'))document.getElementById('overlay').classList.remove('open')}
+
+let toastT;
+function toast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg;el.classList.add('show');
+  clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('show'),3200);
+}
+</script>
+</body>
+</html>
